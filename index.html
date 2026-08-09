@@ -93,10 +93,21 @@ header{
     background:
     radial-gradient(circle at center,#431208 0%,#120505 35%,#070707 70%);
 }
-
+.cover-image{
+    position:absolute;
+    inset:0;
+    width:100%;
+    height:100%;
+    object-fit:cover;
+    opacity:0.65;
+    z-index:0;
+    }
 .hero-content{
+    position:relative;
+    z-index:2;
     max-width:850px;
 }
+
 
 .hero h1{
     font-size:clamp(60px,15vw,140px);
@@ -343,7 +354,7 @@ footer a{
 <!-- HOME -->
 
 <section class="hero" id="home">
-
+<img src="file_000000002a9c820bb15ae2a7e093e54e.png" alt="INFERNO — Rise of Jasdin cover" class="cover-image">
 <div class="hero-content">
 
 <div style="font-size:13px;letter-spacing:4px;color:#aaa;">
