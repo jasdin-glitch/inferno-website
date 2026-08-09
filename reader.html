@@ -1,0 +1,280 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+<title>INFERNO — Chapter 1</title>
+
+<style>
+*{
+    box-sizing:border-box;
+    margin:0;
+    padding:0;
+}
+
+body{
+    background:#050505;
+    color:white;
+    font-family:Arial,sans-serif;
+}
+
+header{
+    position:sticky;
+    top:0;
+    z-index:10;
+    background:#0b0b0b;
+    border-bottom:1px solid #292929;
+    padding:15px;
+    display:flex;
+    align-items:center;
+    justify-content:space-between;
+}
+
+.logo{
+    color:#ff3b18;
+    font-weight:bold;
+    letter-spacing:3px;
+}
+
+.back{
+    color:#ddd;
+    text-decoration:none;
+}
+
+.title{
+    text-align:center;
+    padding:25px 15px;
+}
+
+.title h1{
+    color:#ff3b18;
+    margin-bottom:8px;
+}
+
+.title p{
+    color:#999;
+}
+
+.reader{
+    width:100%;
+    max-width:1000px;
+    margin:auto;
+    text-align:center;
+}
+
+canvas{
+    display:block;
+    width:100%;
+    height:auto;
+    margin:0 auto 10px;
+    background:white;
+}
+
+.controls{
+    position:sticky;
+    bottom:0;
+    z-index:20;
+    background:rgba(5,5,5,0.97);
+    padding:12px;
+    text-align:center;
+    border-top:1px solid #292929;
+}
+
+button{
+    background:#ff3b18;
+    color:white;
+    border:0;
+    padding:12px 18px;
+    border-radius:25px;
+    margin:4px;
+    font-weight:bold;
+    cursor:pointer;
+}
+
+button:disabled{
+    opacity:0.4;
+}
+
+.page-number{
+    color:#aaa;
+    margin:0 8px;
+}
+
+#loading{
+    padding:50px 20px;
+    color:#aaa;
+}
+
+footer{
+    text-align:center;
+    padding:30px;
+    color:#777;
+}
+</style>
+</head>
+
+<body>
+
+<header>
+
+<a href="index.html" class="back">← Back</a>
+
+<div class="logo">INFERNO</div>
+
+</header>
+
+<div class="title">
+
+<h1>Chapter 1</h1>
+
+<p>INFERNO — Rise of Jasdin</p>
+
+</div>
+
+<div id="loading">
+Loading Chapter 1...
+</div>
+
+<div class="reader" id="reader"></div>
+
+<div class="controls">
+
+<button id="previous" onclick="previousPage()">
+◀ Previous
+</button>
+
+<span class="page-number" id="pageNumber">
+Page 1 / 14
+</span>
+
+<button id="next" onclick="nextPage()">
+Next ▶
+</button>
+
+</div>
+
+<footer>
+
+© 2026 INFERNO. All rights reserved.
+
+</footer>
+
+
+<!-- PDF.js -->
+
+<script src="https://cdnjs.cloudflare.com/ajax/libs/pdf.js/3.11.174/pdf.min.js"></script>
+
+<script>
+
+const pdfFile = "INFERNO comic chap1. pdf.pdf";
+
+let pdf = null;
+let currentPage = 1;
+
+pdfjsLib.GlobalWorkerOptions.workerSrc =
+"https://cdnjs.cloudflare.com/ajax/libs/pdf.js/3.11.174/pdf.worker.min.js";
+
+
+async function loadPDF(){
+
+try{
+
+pdf = await pdfjsLib.getDocument(pdfFile).promise;
+
+document.getElementById("loading").style.display="none";
+
+document.getElementById("pageNumber").textContent =
+"Page " + currentPage + " / " + pdf.numPages;
+
+showPage();
+
+}
+
+catch(error){
+
+document.getElementById("loading").textContent =
+"Unable to load Chapter 1.";
+
+console.error(error);
+
+}
+
+}
+
+
+async function showPage(){
+
+if(!pdf) return;
+
+const page = await pdf.getPage(currentPage);
+
+const container = document.getElementById("reader");
+
+container.innerHTML = "";
+
+const viewport = page.getViewport({scale:1.5});
+
+const canvas = document.createElement("canvas");
+
+const context = canvas.getContext("2d");
+
+canvas.width = viewport.width;
+canvas.height = viewport.height;
+
+container.appendChild(canvas);
+
+await page.render({
+canvasContext:context,
+viewport:viewport
+}).promise;
+
+document.getElementById("pageNumber").textContent =
+"Page " + currentPage + " / " + pdf.numPages;
+
+document.getElementById("previous").disabled =
+currentPage === 1;
+
+document.getElementById("next").disabled =
+currentPage === pdf.numPages;
+
+window.scrollTo({
+top:0,
+behavior:"smooth"
+});
+
+}
+
+
+function nextPage(){
+
+if(pdf && currentPage < pdf.numPages){
+
+currentPage++;
+
+showPage();
+
+}
+
+}
+
+
+function previousPage(){
+
+if(pdf && currentPage > 1){
+
+currentPage--;
+
+showPage();
+
+}
+
+}
+
+
+loadPDF();
+
+</script>
+
+</body>
+</html>
