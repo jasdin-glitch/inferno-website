@@ -66,6 +66,7 @@ header{
 canvas{
     display:block;
     width:100%;
+    max-width:100%;
     height:auto;
     margin:0 auto 10px;
     background:white;
@@ -151,7 +152,17 @@ Page 1 / 14
 <button id="next" onclick="nextPage()">
 Next ▶
 </button>
+<button onclick="zoomOut()">
+🔍−
+</button>
 
+<button onclick="resetZoom()">
+Reset
+</button>
+
+<button onclick="zoomIn()">
+🔍+
+</button>
 </div>
 
 <footer>
@@ -171,7 +182,7 @@ const pdfFile = "INFERNO comic chap1. pdf.pdf";
 
 let pdf = null;
 let currentPage = 1;
-
+let zoom = 1.5;
 pdfjsLib.GlobalWorkerOptions.workerSrc =
 "https://cdnjs.cloudflare.com/ajax/libs/pdf.js/3.11.174/pdf.worker.min.js";
 
@@ -213,7 +224,7 @@ const container = document.getElementById("reader");
 
 container.innerHTML = "";
 
-const viewport = page.getViewport({scale:1.5});
+const viewport = page.getViewport({scale:zoom});
 
 const canvas = document.createElement("canvas");
 
@@ -270,7 +281,29 @@ showPage();
 }
 
 }
+function zoomIn(){
 
+zoom = Math.min(zoom + 0.25, 3);
+
+showPage();
+
+}
+
+function zoomOut(){
+
+zoom = Math.max(zoom - 0.25, 0.75);
+
+showPage();
+
+}
+
+function resetZoom(){
+
+zoom = 1.5;
+
+showPage();
+
+    }
 
 loadPDF();
 
