@@ -66,9 +66,9 @@ header{
 
 canvas{
     display:block;
-    width:100%;
-    max-width:100%;
+    width:auto;
     height:auto;
+    max-width:none;
     margin:0 auto 10px;
     background:white;
 }
@@ -292,21 +292,29 @@ showPage();
 
 }
 
+function zoomIn(){
+
+    zoom = Math.min(zoom + 0.25, 3);
+
+    showPage();
+
+}
+
 function zoomOut(){
 
-zoom = Math.max(zoom - 0.25, 0.75);
+    zoom = Math.max(zoom - 0.25, 0.75);
 
-showPage();
+    showPage();
 
 }
 
 function resetZoom(){
 
-zoom = 1.5;
+    zoom = 1.5;
 
-showPage();
+    showPage();
 
-    }
+}
 
 loadPDF();
 
