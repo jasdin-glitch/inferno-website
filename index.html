@@ -83,15 +83,16 @@ header{
 /* HERO */
 
 .hero{
+    position:relative;
     min-height:80vh;
     display:flex;
     align-items:center;
     justify-content:center;
     text-align:center;
     padding:60px 20px;
-
-    background:
-    radial-gradient(circle at center,#431208 0%,#120505 35%,#070707 70%);
+    overflow:hidden;
+    background:#070707;
+}
 }
 .cover-image{
     position:absolute;
@@ -99,8 +100,20 @@ header{
     width:100%;
     height:100%;
     object-fit:cover;
-    opacity:0.65;
+    object-position:center;
+    opacity:0.40;
     z-index:0;
+}
+    .hero::after{
+    content:"";
+    position:absolute;
+    inset:0;
+    background:linear-gradient(
+        to bottom,
+        rgba(0,0,0,0.25),
+        rgba(0,0,0,0.75)
+    );
+    z-index:1;
     }
 .hero-content{
     position:relative;
