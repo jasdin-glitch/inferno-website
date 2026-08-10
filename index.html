@@ -83,14 +83,13 @@ header{
 /* HERO */
 
 .hero{
-    position:relative;
-    min-height:80vh;
+    min-height:auto;
     display:flex;
+    flex-direction:column;
     align-items:center;
     justify-content:center;
     text-align:center;
-    padding:60px 20px;
-    overflow:hidden;
+    padding:0;
     background:#070707;
 }
 }
@@ -100,26 +99,33 @@ header{
     width:100%;
     height:100%;
     object-fit:cover;
-    object-position:center;
-    opacity:0.40;
+    object-position:center center;
+    opacity:0.55;
     z-index:0;
+}
 }
     .hero::after{
     content:"";
     position:absolute;
     inset:0;
-    background:linear-gradient(
-        to bottom,
-        rgba(0,0,0,0.25),
-        rgba(0,0,0,0.75)
-    );
+    background:
+        linear-gradient(
+            to bottom,
+            rgba(0,0,0,0.35),
+            rgba(0,0,0,0.45) 45%,
+            rgba(7,7,7,0.95) 100%
+        );
     z-index:1;
     }
 .hero-content{
     position:relative;
     z-index:2;
+    width:100%;
     max-width:850px;
+    padding:50px 20px 60px;
+    background:#070707;
 }
+
 
 
 .hero h1{
@@ -319,21 +325,64 @@ footer a{
 @media(max-width:600px){
 
     .hero{
-        min-height:75vh;
+        min-height:100vh;
+        padding:40px 20px 55px;
+        align-items:flex-end;
+    }
+
+    .cover-image{
+        object-position:center center;
+        opacity:0.6;
+    }
+
+    .hero::after{
+        background:
+            linear-gradient(
+                to bottom,
+                rgba(0,0,0,0.15) 0%,
+                rgba(0,0,0,0.25) 35%,
+                rgba(0,0,0,0.85) 70%,
+                rgba(7,7,7,1) 100%
+            );
+    }
+
+    .hero-content{
+        width:100%;
+        max-width:500px;
+        padding-top:200px;
     }
 
     .hero h1{
+        font-size:58px;
         letter-spacing:6px;
+        margin-bottom:5px;
     }
 
     .subtitle{
-        letter-spacing:3px;
+        font-size:18px;
+        letter-spacing:4px;
+    }
+
+    .hero-description{
+        font-size:15px;
+        line-height:1.6;
+        margin:18px auto;
+        max-width:360px;
+    }
+
+    .buttons{
+        margin-top:20px;
+        gap:10px;
+    }
+
+    .button{
+        padding:13px 22px;
     }
 
     .section-title{
         font-size:28px;
     }
-}
+    }
 </style>
 </head>
 
