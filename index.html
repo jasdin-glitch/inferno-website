@@ -571,7 +571,23 @@ footer a{
     background:#e8e8e8;
 }
 
+/* HERO ANIMATION */
 
+.hero-content{
+    animation: heroFade 1.2s ease-out;
+}
+
+@keyframes heroFade{
+    from{
+        opacity:0;
+        transform:translateY(20px);
+    }
+
+    to{
+        opacity:1;
+        transform:translateY(0);
+    }
+}
 /* =========================
    MOBILE
 ========================= */
