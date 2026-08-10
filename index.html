@@ -77,7 +77,14 @@ header{
 ========================= */
 
 .menu{
-    display:none;
+    display:block;
+opacity:0;
+visibility:hidden;
+transform:translateY(-8px);
+transition:
+    opacity 0.2s ease,
+    transform 0.2s ease,
+    visibility 0.2s ease;
 
     position:absolute;
 
@@ -95,6 +102,11 @@ header{
     padding:10px;
 
     box-shadow:0 10px 30px rgba(0,0,0,0.6);
+}
+   .menu.open{
+    opacity:1;
+    visibility:visible;
+    transform:translateY(0);
 }
 .menu{
     animation:menuAppear 0.2s ease;
@@ -1121,18 +1133,9 @@ footer a{
 
 function toggleMenu(){
 
-    const menu =
-        document.getElementById("menu");
+    let menu = document.getElementById("menu");
 
-    if(menu.style.display === "block"){
-
-        menu.style.display = "none";
-
-    }else{
-
-        menu.style.display = "block";
-
-    }
+    menu.classList.toggle("open");
 
 }
 
