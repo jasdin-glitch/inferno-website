@@ -1,12 +1,18 @@
 <!DOCTYPE html>
 <html lang="en">
 <head>
+
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
 
 <title>INFERNO | Official Comic</title>
 
 <style>
+
+/* =========================
+   BASIC
+========================= */
+
 *{
     box-sizing:border-box;
     margin:0;
@@ -18,21 +24,28 @@ html{
 }
 
 body{
-    font-family:Arial, sans-serif;
+    font-family:Arial,sans-serif;
     background:#070707;
     color:white;
     transition:0.3s;
 }
 
-/* HEADER */
+
+/* =========================
+   HEADER
+========================= */
 
 header{
     position:sticky;
     top:0;
     z-index:1000;
-    background:rgba(5,5,5,0.95);
+
+    background:rgba(5,5,5,0.96);
+
     border-bottom:1px solid #292929;
+
     padding:15px 20px;
+
     display:flex;
     justify-content:space-between;
     align-items:center;
@@ -40,261 +53,733 @@ header{
 
 .logo{
     color:#ff3b18;
+
     font-size:25px;
     font-weight:bold;
+
     letter-spacing:4px;
+
+    text-shadow:
+        0 0 8px rgba(255,59,24,0.5);
 }
 
 .menu-button{
     background:none;
     border:none;
+
     color:white;
+
     font-size:28px;
+
     cursor:pointer;
 }
 
-/* MENU */
+
+/* =========================
+   MENU
+========================= */
 
 .menu{
     display:none;
+
     position:absolute;
+
     top:65px;
     right:15px;
+
     background:#151515;
+
     border:1px solid #333;
+
     border-radius:12px;
+
     width:210px;
+
     padding:10px;
 }
 
 .menu a{
     display:block;
+
     color:white;
+
     text-decoration:none;
+
     padding:13px;
+
     border-radius:8px;
 }
 
 .menu a:hover{
     background:#252525;
+
     color:#ff4b27;
 }
 
-/* HERO */
 
+/* =========================
+   HERO
+========================= */
 
 .hero{
-    min-height:90vh;
     position:relative;
+
+    min-height:90vh;
+
     display:flex;
+
     align-items:center;
+
     justify-content:center;
+
     text-align:center;
+
     padding:60px 20px;
+
     overflow:hidden;
+
     background:#070707;
 }
 
+
+/* COVER IMAGE */
+
 .cover-image{
     position:absolute;
+
     inset:0;
+
     width:100%;
     height:100%;
+
     object-fit:cover;
+
     object-position:center center;
+
     opacity:0.72;
+
     z-index:0;
 }
 
+
+/* DARK OVERLAY */
+
 .hero::after{
     content:"";
+
     position:absolute;
+
     inset:0;
+
     z-index:1;
+
     background:
         linear-gradient(
             to bottom,
             rgba(0,0,0,0.15) 0%,
             rgba(0,0,0,0.25) 45%,
-            rgba(7,7,7,0.85) 100%
+            rgba(7,7,7,0.9) 100%
         );
 }
 
+
+/* HERO CONTENT */
+
 .hero-content{
     position:relative;
+
     z-index:5;
+
     width:100%;
+
     max-width:850px;
+
     padding:30px 20px;
 }
 
+
+/* ORIGINAL COMIC */
+
+.original{
+    font-size:13px;
+
+    letter-spacing:4px;
+
+    color:#ffffff;
+
+    margin-bottom:5px;
+
+    text-shadow:
+        0 2px 8px #000;
+}
+
+
+/* INFERNO TITLE */
+
 .hero h1{
     font-size:clamp(60px,15vw,140px);
+
     letter-spacing:12px;
+
     color:#ff3517;
+
     text-shadow:
         0 0 10px #ff3517,
         0 0 30px #ff3517,
         0 0 60px #9c1608;
 }
 
+
+/* SUBTITLE */
+
 .subtitle{
     font-size:clamp(18px,4vw,30px);
+
     letter-spacing:7px;
+
     color:#ffffff;
+
     margin-top:5px;
-    text-shadow:0 0 8px rgba(255,255,255,0.7);
+
+    text-shadow:
+        0 2px 8px #000;
 }
+
+
+/* DESCRIPTION */
 
 .hero-description{
     max-width:650px;
+
     margin:25px auto;
+
     color:#ffffff;
+
     font-weight:600;
+
     line-height:1.7;
-    text-shadow:0 2px 7px rgba(0,0,0,0.9);
+
+    text-shadow:
+        0 2px 8px #000;
 }
 
-/* BUTTONS */
+
+/* =========================
+   BUTTONS
+========================= */
 
 .buttons{
     display:flex;
+
     justify-content:center;
+
     gap:15px;
+
     flex-wrap:wrap;
+
     margin-top:30px;
 }
 
 .button{
     display:inline-block;
+
     padding:14px 25px;
+
     border-radius:30px;
+
     text-decoration:none;
+
     font-weight:bold;
+
     transition:0.25s;
 }
 
 .primary{
     background:#ff3b18;
-    color:#ffffff;
-    box-shadow:0 0 18px rgba(255,59,24,0.45);
+
+    color:white;
+
+    box-shadow:
+        0 0 18px rgba(255,59,24,0.4);
 }
 
 .secondary{
     border:2px solid #ff3b18;
-    color:#ffffff;
-    background:rgba(0,0,0,0.4);
+
+    color:white;
+
+    background:rgba(0,0,0,0.45);
 }
 
 .button:hover{
     transform:translateY(-3px);
-    box-shadow:0 0 20px #ff3b18;
+
+    box-shadow:
+        0 0 20px #ff3b18;
 }
 
-/* MOBILE */
+
+/* =========================
+   SECTIONS
+========================= */
+
+section{
+    padding:70px 20px;
+}
+
+.container{
+    max-width:1000px;
+
+    margin:auto;
+}
+
+.section-title{
+    text-align:center;
+
+    font-size:35px;
+
+    margin-bottom:25px;
+}
+
+.section-text{
+    text-align:center;
+
+    max-width:750px;
+
+    margin:auto;
+
+    color:#aaa;
+
+    line-height:1.8;
+}
+
+
+/* =========================
+   CHAPTER CARDS
+========================= */
+
+.cards{
+    display:grid;
+
+    grid-template-columns:
+        repeat(auto-fit,minmax(220px,1fr));
+
+    gap:20px;
+
+    margin-top:35px;
+}
+
+.card{
+    background:#111;
+
+    border:1px solid #292929;
+
+    border-radius:15px;
+
+    padding:25px;
+
+    text-align:center;
+
+    transition:0.3s;
+}
+
+.card:hover{
+    transform:translateY(-5px);
+
+    border-color:#ff3b18;
+}
+
+.card-icon{
+    font-size:40px;
+
+    margin-bottom:15px;
+}
+
+.card h3{
+    margin-bottom:10px;
+}
+
+.card p{
+    color:#999;
+
+    line-height:1.6;
+}
+
+.read{
+    display:inline-block;
+
+    margin-top:15px;
+
+    color:#ff5535;
+
+    text-decoration:none;
+
+    font-weight:bold;
+}
+
+
+/* =========================
+   SOCIAL
+========================= */
+
+.social{
+    text-align:center;
+}
+
+.social a{
+    display:inline-block;
+
+    margin:8px;
+
+    padding:10px 18px;
+
+    border:1px solid #333;
+
+    border-radius:20px;
+
+    color:#ddd;
+
+    text-decoration:none;
+}
+
+.social a:hover{
+    border-color:#ff3b18;
+
+    color:#ff5535;
+}
+
+
+/* =========================
+   FOOTER
+========================= */
+
+footer{
+    text-align:center;
+
+    padding:35px 20px;
+
+    background:#050505;
+
+    border-top:1px solid #292929;
+
+    color:#888;
+
+    line-height:1.8;
+}
+
+footer a{
+    color:#ff5535;
+
+    text-decoration:none;
+}
+
+
+/* =========================
+   LIGHT MODE
+========================= */
+
+.light{
+    background:#f3f3f3;
+
+    color:#111;
+}
+
+.light header{
+    background:white;
+
+    border-color:#ddd;
+}
+
+.light .menu{
+    background:white;
+
+    border-color:#ddd;
+}
+
+.light .menu a{
+    color:#111;
+}
+
+.light .hero{
+    background:#f3f3f3;
+}
+
+.light .hero-description{
+    color:white;
+}
+
+.light .section-text{
+    color:#555;
+}
+
+.light .card p{
+    color:#555;
+}
+
+.light .card{
+    background:white;
+
+    border-color:#ddd;
+}
+
+.light footer{
+    background:#e8e8e8;
+}
+
+
+/* =========================
+   MOBILE
+========================= */
 
 @media(max-width:600px){
 
+    /*
+       MOBILE HERO
+
+       The image is NOT cropped.
+       The complete image is displayed.
+    */
+
     .hero{
         min-height:auto;
+
         height:auto;
-        padding:0;
+
         display:block;
+
+        padding:0;
+
         background:#070707;
+
+        overflow:hidden;
     }
+
 
     .cover-image{
         position:relative;
+
         inset:auto;
+
         display:block;
+
         width:100%;
+
         height:auto;
+
         object-fit:contain;
+
+        object-position:center center;
+
         opacity:1;
     }
+
+
+    /*
+       No overlay on mobile.
+       This keeps the artwork clear.
+    */
 
     .hero::after{
         display:none;
     }
 
+
+    /*
+       Text comes BELOW the complete image.
+    */
+
     .hero-content{
         position:relative;
+
         width:100%;
+
         max-width:none;
+
         padding:35px 20px 50px;
+
         text-align:center;
+
+        background:
+            linear-gradient(
+                to bottom,
+                #120604 0%,
+                #070707 100%
+            );
     }
+
+
+    .original{
+        font-size:12px;
+
+        letter-spacing:3px;
+
+        color:#ffffff;
+    }
+
 
     .hero h1{
         font-size:55px;
+
         letter-spacing:6px;
     }
 
+
     .subtitle{
         font-size:18px;
+
         letter-spacing:3px;
     }
 
+
     .hero-description{
         max-width:350px;
+
         margin:20px auto;
+
         font-size:15px;
+
         line-height:1.6;
+
+        color:#ffffff;
     }
+
 
     .buttons{
         margin-top:25px;
+
+        gap:10px;
     }
+
 
     .button{
         padding:12px 20px;
     }
+
+
+    .section-title{
+        font-size:28px;
     }
 
+
+    .section-text{
+        font-size:15px;
+
+        line-height:1.7;
+    }
+
+}
+
+
+/* =========================
+   SMALL PHONES
+========================= */
+
+@media(max-width:380px){
+
+    .hero h1{
+        font-size:48px;
+
+        letter-spacing:5px;
+    }
+
+    .subtitle{
+        font-size:16px;
+
+        letter-spacing:2px;
+    }
+
+    .hero-description{
+        font-size:14px;
+    }
+
+}
+
 </style>
+
 </head>
+
 
 <body>
 
+
+<!-- =========================
+     HEADER
+========================= -->
+
 <header>
 
-<div class="logo">INFERNO</div>
+<div class="logo">
+INFERNO
+</div>
 
-<button class="menu-button" onclick="toggleMenu()">☰</button>
+<button
+    class="menu-button"
+    onclick="toggleMenu()">
+    ☰
+</button>
 
 <div id="menu" class="menu">
 
-<a href="#home">🏠 Home</a>
+<a href="#home">
+🏠 Home
+</a>
 
-<a href="#chapters">📖 Chapters</a>
+<a href="#chapters">
+📖 Chapters
+</a>
 
-<a href="#about">👨‍🎨 About Creator</a>
+<a href="#about">
+👨‍🎨 About Creator
+</a>
 
-<a href="#social">🔗 Social Media</a>
+<a href="#social">
+🔗 Social Media
+</a>
 
-<a href="#copyright">⚖️ Copyright / Disclaimer</a>
+<a href="#copyright">
+⚖️ Copyright / Disclaimer
+</a>
 
-<a href="#" onclick="toggleTheme()">🌙 Dark / ☀️ Light</a>
+<a href="#" onclick="toggleTheme()">
+🌙 Dark / ☀️ Light
+</a>
 
 </div>
 
 </header>
 
 
-<!-- HOME -->
+<!-- =========================
+     HOME / HERO
+========================= -->
 
 <section class="hero" id="home">
-<img src="file_000000000bb08207adf8ba9ac9515c38.png" alt="INFERNO — Rise of Jasdin cover" class="cover-image">
+
+
+<img
+    src="file_000000000bb08207adf8ba9ac9515c38.png"
+    alt="INFERNO — Rise of Jasdin cover"
+    class="cover-image"
+>
+
+
 <div class="hero-content">
-<div style="font-size:13px;letter-spacing:4px;color:#aaa;">
+
+
+<div class="original">
 AN ORIGINAL COMIC
 </div>
 
-<h1>INFERNO</h1>
+
+<h1>
+INFERNO
+</h1>
+
 
 <div class="subtitle">
 RISE OF JASDIN
 </div>
+
 
 <p class="hero-description">
 
@@ -304,24 +789,33 @@ friendships, rivals and dangerous enemies.
 
 </p>
 
+
 <div class="buttons">
 
-<a href="chapters.html" class="button primary">
-📖 READ COMIC
+<a
+    href="chapters.html"
+    class="button primary">
+    📖 READ COMIC
 </a>
 
-<a href="#about" class="button secondary">
-👨‍🎨 ABOUT
+
+<a
+    href="#about"
+    class="button secondary">
+    👨‍🎨 ABOUT
 </a>
 
 </div>
+
 
 </div>
 
 </section>
 
 
-<!-- STORY -->
+<!-- =========================
+     STORY
+========================= -->
 
 <section>
 
@@ -348,7 +842,9 @@ His adventure is only beginning...
 </section>
 
 
-<!-- CHAPTERS -->
+<!-- =========================
+     CHAPTERS
+========================= -->
 
 <section id="chapters">
 
@@ -359,23 +855,33 @@ His adventure is only beginning...
 </h2>
 
 <p class="section-text">
+
 The comic chapters will appear here as they are published.
+
 </p>
+
 
 <div class="cards">
 
+
 <div class="card">
 
-<div class="card-icon">🔥</div>
+<div class="card-icon">
+🔥
+</div>
 
-<h3>Chapter 1</h3>
+<h3>
+Chapter 1
+</h3>
 
 <p>
 Rise of Jasdin
 </p>
 
-<a href="reader.html" class="read">
-Read Chapter →
+<a
+    href="reader.html"
+    class="read">
+    Read Chapter →
 </a>
 
 </div>
@@ -383,9 +889,13 @@ Read Chapter →
 
 <div class="card">
 
-<div class="card-icon">⚡</div>
+<div class="card-icon">
+⚡
+</div>
 
-<h3>Chapter 2</h3>
+<h3>
+Chapter 2
+</h3>
 
 <p>
 Coming soon
@@ -396,15 +906,20 @@ Coming soon
 
 <div class="card">
 
-<div class="card-icon">🌌</div>
+<div class="card-icon">
+🌌
+</div>
 
-<h3>Chapter 3</h3>
+<h3>
+Chapter 3
+</h3>
 
 <p>
 Coming soon
 </p>
 
 </div>
+
 
 </div>
 
@@ -413,7 +928,9 @@ Coming soon
 </section>
 
 
-<!-- ABOUT -->
+<!-- =========================
+     ABOUT
+========================= -->
 
 <section id="about">
 
@@ -441,7 +958,9 @@ future chapters.
 </section>
 
 
-<!-- SOCIAL -->
+<!-- =========================
+     SOCIAL
+========================= -->
 
 <section id="social">
 
@@ -459,18 +978,30 @@ Follow INFERNO for future updates and announcements.
 
 <br>
 
-<a href="#">Instagram</a>
 
-<a href="#">YouTube</a>
+<a href="#">
+Instagram
+</a>
 
-<a href="#">Other</a>
+
+<a href="#">
+YouTube
+</a>
+
+
+<a href="#">
+Other
+</a>
+
 
 </div>
 
 </section>
 
 
-<!-- COPYRIGHT -->
+<!-- =========================
+     COPYRIGHT
+========================= -->
 
 <section id="copyright">
 
@@ -479,6 +1010,7 @@ Follow INFERNO for future updates and announcements.
 <h2 class="section-title">
 ⚖️ Copyright & Disclaimer
 </h2>
+
 
 <p class="section-text">
 
@@ -491,8 +1023,10 @@ Visual artwork is AI-assisted.
 
 <br><br>
 
-<a href="disclaimer.html" style="color:#ff4b27;">
-Tap here to learn more →
+<a
+    href="disclaimer.html"
+    style="color:#ff4b27;">
+    Tap here to learn more →
 </a>
 
 </p>
@@ -501,6 +1035,10 @@ Tap here to learn more →
 
 </section>
 
+
+<!-- =========================
+     FOOTER
+========================= -->
 
 <footer>
 
@@ -519,29 +1057,41 @@ Tap here to learn more →
 </footer>
 
 
+<!-- =========================
+     JAVASCRIPT
+========================= -->
+
 <script>
+
 
 function toggleMenu(){
 
-let menu=document.getElementById("menu");
+    let menu =
+        document.getElementById("menu");
 
-if(menu.style.display==="block"){
-menu.style.display="none";
-}else{
-menu.style.display="block";
-}
+    if(menu.style.display === "block"){
+
+        menu.style.display = "none";
+
+    }else{
+
+        menu.style.display = "block";
+
+    }
 
 }
 
 
 function toggleTheme(){
 
-document.body.classList.toggle("light");
+    document.body.classList.toggle("light");
 
 }
 
 
 </script>
 
+
 </body>
-</html>
+
+    </html>
