@@ -2,12 +2,22 @@
 <html lang="en">
 
 <head>
+
 <meta charset="UTF-8">
-<meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+<meta
+name="viewport"
+content="width=device-width, initial-scale=1.0"
+>
 
 <title>IGNIX — Chapter 1</title>
 
+
 <style>
+
+/* =========================
+   BASIC RESET
+========================= */
 
 *{
     box-sizing:border-box;
@@ -15,81 +25,130 @@
     padding:0;
 }
 
+
+/* =========================
+   BODY
+========================= */
+
 body{
+
     background:#050505;
+
     color:white;
+
     font-family:Arial,sans-serif;
+
     overflow-x:hidden;
+
 }
+
 
 /* =========================
    HEADER
 ========================= */
 
 header{
+
     position:sticky;
+
     top:0;
+
     z-index:10;
 
     background:#0b0b0b;
+
     border-bottom:1px solid #292929;
 
     padding:15px;
 
     display:flex;
+
     align-items:center;
+
     justify-content:space-between;
+
 }
+
 
 .logo{
+
     color:#ff3b18;
+
     font-weight:bold;
+
     letter-spacing:3px;
+
 }
+
 
 .back{
+
     color:#ddd;
+
     text-decoration:none;
+
 }
 
+
 .back:hover{
+
     color:#ff3b18;
+
 }
+
 
 /* =========================
    TITLE
 ========================= */
 
 .title{
+
     text-align:center;
+
     padding:25px 15px;
+
 }
+
 
 .title h1{
+
     color:#ff3b18;
+
     margin-bottom:8px;
+
 }
 
+
 .title p{
+
     color:#999;
+
 }
+
 
 /* =========================
    LOADING
 ========================= */
 
 #loading{
+
     padding:50px 20px;
+
     text-align:center;
+
     color:#aaa;
+
 }
+
 
 /* =========================
    READER
 ========================= */
 
 .reader{
+
     width:100%;
+
     max-width:1000px;
 
     margin:auto;
@@ -97,41 +156,44 @@ header{
     text-align:center;
 
     overflow-x:auto;
+
     overflow-y:hidden;
 
-    padding:0 8px 10px;
+    padding:0 0 15px;
+
 }
 
-/*
-   The canvas itself is NOT forced
-   to max-width:100%.
 
-   JavaScript controls its actual
-   size so that:
-   - default = phone fit
-   - zoom = larger than screen
+/*
+   The canvas width is controlled
+   by JavaScript.
 */
 
 canvas{
+
     display:block;
 
-    width:auto;
     height:auto;
 
     max-width:none;
 
+    background:white;
+
     margin:0 auto 10px;
 
-    background:white;
 }
+
 
 /* =========================
    CONTROLS
 ========================= */
 
 .controls{
+
     position:sticky;
+
     bottom:0;
+
     z-index:20;
 
     background:rgba(5,5,5,0.97);
@@ -142,26 +204,36 @@ canvas{
 
     border-top:1px solid #292929;
 
-    box-shadow:0 -4px 15px rgba(0,0,0,0.35);
+    box-shadow:
+    0 -4px 15px rgba(0,0,0,0.35);
+
 }
 
+
 .controls button{
+
     min-width:85px;
+
     min-height:44px;
 
     padding:12px 16px;
 
     font-size:14px;
+
 }
 
+
 button{
+
     background:#ff3b18;
+
     color:white;
 
     border:0;
-    border-radius:25px;
 
     padding:12px 18px;
+
+    border-radius:25px;
 
     margin:4px;
 
@@ -170,18 +242,28 @@ button{
     cursor:pointer;
 
     min-height:44px;
+
 }
+
 
 button:disabled{
+
     opacity:0.4;
+
     cursor:not-allowed;
+
 }
+
 
 button:active{
+
     transform:scale(0.97);
+
 }
 
+
 .page-number{
+
     display:inline-block;
 
     min-width:90px;
@@ -189,13 +271,16 @@ button:active{
     margin:4px 5px;
 
     color:#aaa;
+
 }
+
 
 /* =========================
    FOOTER
 ========================= */
 
 footer{
+
     text-align:center;
 
     padding:30px 10px;
@@ -203,7 +288,9 @@ footer{
     font-size:12px;
 
     color:#777;
+
 }
+
 
 /* =========================
    MOBILE
@@ -212,48 +299,77 @@ footer{
 @media(max-width:600px){
 
     header{
+
         padding:14px 15px;
+
     }
+
 
     .title{
+
         padding:20px 10px;
+
     }
+
 
     .title h1{
+
         font-size:24px;
+
     }
+
 
     .title p{
+
         font-size:14px;
+
     }
+
 
     .reader{
-        padding-left:4px;
-        padding-right:4px;
+
+        padding-left:0;
+
+        padding-right:0;
+
     }
+
 
     .controls{
+
         padding:8px 4px;
+
     }
+
 
     .controls button{
+
         min-width:78px;
+
         padding:10px 11px;
+
         font-size:13px;
+
     }
 
+
     .page-number{
+
         min-width:75px;
+
         font-size:13px;
+
     }
 
 }
 
 </style>
+
 </head>
 
 
 <body>
+
 
 <!-- =========================
      HEADER
@@ -261,9 +377,13 @@ footer{
 
 <header>
 
-<a href="index.html" class="back">
+<a
+href="index.html"
+class="back"
+>
 ← Back
 </a>
+
 
 <div class="logo">
 IGNIX
@@ -278,9 +398,14 @@ IGNIX
 
 <div class="title">
 
-<h1>Chapter 1</h1>
+<h1>
+Chapter 1
+</h1>
 
-<p>IGNIX — Rise of Jasdin</p>
+
+<p>
+IGNIX — Rise of Jasdin
+</p>
 
 </div>
 
@@ -290,15 +415,21 @@ IGNIX
 ========================= -->
 
 <div id="loading">
+
 Loading Chapter 1...
+
 </div>
 
 
 <!-- =========================
-     PDF READER
+     READER
 ========================= -->
 
-<div class="reader" id="reader"></div>
+<div
+class="reader"
+id="reader"
+>
+</div>
 
 
 <!-- =========================
@@ -307,31 +438,54 @@ Loading Chapter 1...
 
 <div class="controls">
 
-<button id="previous" onclick="previousPage()">
+
+<button
+id="previous"
+onclick="previousPage()"
+>
 ◀ Previous
 </button>
 
-<span class="page-number" id="pageNumber">
+
+<span
+class="page-number"
+id="pageNumber"
+>
 Page 1 / ...
 </span>
 
-<button id="next" onclick="nextPage()">
+
+<button
+id="next"
+onclick="nextPage()"
+>
 Next ▶
 </button>
 
+
 <br>
 
-<button onclick="zoomOut()">
+
+<button
+onclick="zoomOut()"
+>
 🔍−
 </button>
 
-<button onclick="resetZoom()">
+
+<button
+onclick="resetZoom()"
+>
 Reset
 </button>
 
-<button onclick="zoomIn()">
+
+<button
+onclick="zoomIn()"
+>
 🔍+
 </button>
+
 
 </div>
 
@@ -360,43 +514,40 @@ Reset
    PDF FILE
 ========================= */
 
-const pdfFile = "IGNIX_chap1_high_quality_23-25MB_FINAL (1).pdf";
+const pdfFile =
+"IGNIX_chap1_high_quality_23-25MB_FINAL (1).pdf";
 
 
 /* =========================
-   PDF VARIABLES
+   VARIABLES
 ========================= */
 
 let pdf = null;
 
 let currentPage = 1;
 
+
 /*
-   zoomLevel = 1
-   means automatic phone-fit.
+   1 = phone-friendly reading size
 
-   zoomLevel > 1
-   means zoomed in.
+   >1 = zoom in
 
-   zoomLevel < 1
-   means zoomed out.
+   <1 = zoom out
 */
 
 let zoomLevel = 1;
 
 
 /*
-   The automatically calculated
-   scale that makes the page fit
-   the phone screen.
+   Automatically calculated
+   page-width scale.
 */
 
 let fitScale = 1;
 
 
 /*
-   Used to prevent two pages
-   rendering at the same time.
+   Prevents overlapping renders.
 */
 
 let renderTask = null;
@@ -418,21 +569,24 @@ async function loadPDF(){
 
     try{
 
-        pdf = await pdfjsLib
-            .getDocument(pdfFile)
-            .promise;
+        pdf =
+        await pdfjsLib
+        .getDocument(pdfFile)
+        .promise;
 
 
-        document.getElementById("loading")
-            .style.display = "none";
+        document
+        .getElementById("loading")
+        .style.display = "none";
 
 
-        document.getElementById("pageNumber")
-            .textContent =
-            "Page " +
-            currentPage +
-            " / " +
-            pdf.numPages;
+        document
+        .getElementById("pageNumber")
+        .textContent =
+        "Page " +
+        currentPage +
+        " / " +
+        pdf.numPages;
 
 
         updateButtons();
@@ -444,9 +598,10 @@ async function loadPDF(){
 
     catch(error){
 
-        document.getElementById("loading")
-            .textContent =
-            "Unable to load Chapter 1.";
+        document
+        .getElementById("loading")
+        .textContent =
+        "Unable to load Chapter 1.";
 
         console.error(
             "PDF loading error:",
@@ -465,31 +620,37 @@ async function loadPDF(){
 async function showPage(){
 
     if(!pdf){
+
         return;
+
     }
 
 
     const page =
-        await pdf.getPage(currentPage);
+    await pdf.getPage(currentPage);
 
 
     const container =
-        document.getElementById("reader");
+    document.getElementById("reader");
 
 
     /*
-       Cancel an older render
-       if one is still running.
+       Cancel an old render
+       if necessary.
     */
 
     if(renderTask){
 
         try{
+
             renderTask.cancel();
+
         }
 
         catch(error){
+
             console.log(error);
+
         }
 
     }
@@ -499,72 +660,74 @@ async function showPage(){
 
 
     /*
-       First get the page's natural
-       size at scale 1.
+       Get the original page
+       dimensions.
     */
 
     const baseViewport =
-        page.getViewport({
-            scale:1
-        });
+    page.getViewport({
+        scale:1
+    });
 
 
     /*
-       Find the available width
-       of the phone/browser.
+       Available phone width.
+
+       window.innerWidth is used
+       so the comic can use almost
+       the complete phone screen.
     */
 
     const availableWidth =
-        Math.max(
-            container.clientWidth - 8,
-            250
-        );
+    Math.max(
+        window.innerWidth - 4,
+        280
+    );
 
 
     /*
-       Calculate the scale needed
-       to fit the page on screen.
+       Calculate width needed to
+       make the comic page fill the
+       available phone width.
     */
 
     fitScale =
-        availableWidth /
-        baseViewport.width;
+    availableWidth /
+    baseViewport.width;
 
 
     /*
-       Prevent an extremely small
-       or extremely large automatic
-       scale.
+       Prevent extreme values.
     */
 
     fitScale =
-        Math.max(
-            Math.min(fitScale, 2),
-            0.5
-        );
+    Math.max(
+        Math.min(
+            fitScale,
+            2
+        ),
+        0.5
+    );
 
 
     /*
-       Apply the user's zoom level.
+       Apply zoom.
 
-       zoomLevel = 1
-       -> automatic fit
+       Default:
+       fit page width.
 
-       zoomLevel = 1.25
-       -> slightly zoomed in
-
-       zoomLevel = 2
-       -> larger zoom
+       Zoom +:
+       larger than screen.
     */
 
     const finalScale =
-        fitScale * zoomLevel;
+    fitScale * zoomLevel;
 
 
     const viewport =
-        page.getViewport({
-            scale:finalScale
-        });
+    page.getViewport({
+        scale:finalScale
+    });
 
 
     /*
@@ -572,53 +735,60 @@ async function showPage(){
     */
 
     const canvas =
-        document.createElement("canvas");
+    document.createElement("canvas");
 
 
     const context =
-        canvas.getContext("2d");
+    canvas.getContext("2d");
 
 
     canvas.width =
-        Math.floor(viewport.width);
+    Math.floor(viewport.width);
 
 
     canvas.height =
-        Math.floor(viewport.height);
+    Math.floor(viewport.height);
 
 
     /*
-       Set the displayed CSS size
-       to the real rendered size.
+       Display at the rendered
+       size.
+
+       This keeps the zoom sharp.
     */
 
     canvas.style.width =
-        viewport.width + "px";
+    viewport.width + "px";
 
 
     canvas.style.height =
-        viewport.height + "px";
+    viewport.height + "px";
 
 
     /*
-       Center when it fits.
+       Center when the page fits.
 
-       When zoomed larger than the phone,
-       the reader becomes horizontally
-       scrollable.
+       When zoomed in, allow
+       horizontal scrolling.
     */
 
     if(viewport.width <= availableWidth){
 
-        canvas.style.marginLeft = "auto";
-        canvas.style.marginRight = "auto";
+        canvas.style.marginLeft =
+        "auto";
+
+        canvas.style.marginRight =
+        "auto";
 
     }
 
     else{
 
-        canvas.style.marginLeft = "0";
-        canvas.style.marginRight = "0";
+        canvas.style.marginLeft =
+        "0";
+
+        canvas.style.marginRight =
+        "0";
 
     }
 
@@ -627,17 +797,17 @@ async function showPage(){
 
 
     /*
-       Render PDF page.
+       Render the PDF.
     */
 
     renderTask =
-        page.render({
+    page.render({
 
-            canvasContext:context,
+        canvasContext:context,
 
-            viewport:viewport
+        viewport:viewport
 
-        });
+    });
 
 
     try{
@@ -648,14 +818,13 @@ async function showPage(){
 
     catch(error){
 
-        /*
-           Ignore cancellation errors.
-        */
-
-        if(error.name !== "RenderingCancelledException"){
+        if(
+            error.name !==
+            "RenderingCancelledException"
+        ){
 
             console.error(
-                "Page rendering error:",
+                "Rendering error:",
                 error
             );
 
@@ -668,28 +837,28 @@ async function showPage(){
        Update page number.
     */
 
-    document.getElementById("pageNumber")
-        .textContent =
-        "Page " +
-        currentPage +
-        " / " +
-        pdf.numPages;
+    document
+    .getElementById("pageNumber")
+    .textContent =
+    "Page " +
+    currentPage +
+    " / " +
+    pdf.numPages;
 
 
     updateButtons();
 
 
     /*
-       Return to the top of the
-       new page.
-
-       "auto" prevents the
-       strange smooth-scroll delay.
+       New page starts at the top.
     */
 
     window.scrollTo({
+
         top:0,
+
         behavior:"auto"
+
     });
 
 }
@@ -703,7 +872,8 @@ function nextPage(){
 
     if(
         pdf &&
-        currentPage < pdf.numPages
+        currentPage <
+        pdf.numPages
     ){
 
         currentPage++;
@@ -742,10 +912,10 @@ function previousPage(){
 function zoomIn(){
 
     zoomLevel =
-        Math.min(
-            zoomLevel + 0.25,
-            3
-        );
+    Math.min(
+        zoomLevel + 0.25,
+        3
+    );
 
     showPage();
 
@@ -759,10 +929,10 @@ function zoomIn(){
 function zoomOut(){
 
     zoomLevel =
-        Math.max(
-            zoomLevel - 0.25,
-            0.5
-        );
+    Math.max(
+        zoomLevel - 0.25,
+        0.5
+    );
 
     showPage();
 
@@ -770,16 +940,10 @@ function zoomOut(){
 
 
 /* =========================
-   RESET ZOOM
+   RESET
 ========================= */
 
 function resetZoom(){
-
-    /*
-       Reset means:
-       automatically fit the
-       page to the phone again.
-    */
 
     zoomLevel = 1;
 
@@ -789,26 +953,62 @@ function resetZoom(){
 
 
 /* =========================
-   UPDATE BUTTONS
+   BUTTON STATE
 ========================= */
 
 function updateButtons(){
 
     if(!pdf){
+
         return;
+
     }
 
 
-    document.getElementById("previous")
-        .disabled =
-        currentPage === 1;
+    document
+    .getElementById("previous")
+    .disabled =
+    currentPage === 1;
 
 
-    document.getElementById("next")
-        .disabled =
-        currentPage === pdf.numPages;
+    document
+    .getElementById("next")
+    .disabled =
+    currentPage === pdf.numPages;
 
 }
+
+
+/* =========================
+   PHONE ROTATION / RESIZE
+========================= */
+
+let resizeTimer;
+
+
+window.addEventListener(
+    "resize",
+    function(){
+
+        clearTimeout(resizeTimer);
+
+
+        resizeTimer =
+        setTimeout(
+            function(){
+
+                if(pdf){
+
+                    showPage();
+
+                }
+
+            },
+            250
+        );
+
+    }
+);
 
 
 /* =========================
