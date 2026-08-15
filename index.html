@@ -1343,7 +1343,14 @@ body.light{
 ===================================================== -->
 
 <script>
-
+fetch("https://page-views-api.ratneshc.com/api/v1/views?site=jasdin-glitch.github.io&path=%2Fignix-website%2F")
+  .then(response => response.json())
+  .then(data => {
+    document.getElementById("views").textContent = data.views;
+  })
+  .catch(() => {
+    document.getElementById("views").textContent = "—";
+  });
 /* =====================================================
    MENU
 ===================================================== */
